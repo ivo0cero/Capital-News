@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Noticias de la Capital</title>
+<style>
+    body {
+        background-color: #0b0b0f;
+        color: #d6d6d6;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+    }
+
+    header {
+        border-bottom: 1px solid #333;
+        margin-bottom: 20px;
+    }
+
+    h1 {
+        color: #ffffff;
+        letter-spacing: 2px;
+    }
+
+    .news {
+        background: #15151c;
+        padding: 15px;
+        margin-bottom: 15px;
+        border-left: 4px solid #555;
+    }
+
+    .glitch {
+        color: #ff4c4c;
+    }
+
+    a {
+        color: #7aa2ff;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>NOTICIAS DE LA CAPITAL</h1>
+    <p>Última actualización: sistema inestable</p>
+</header>
+
+<div class="news">
+    <h3>Hospital 3 mantiene actividad normal</h3>
+    <p>Autoridades niegan reportes de anomalías en la habitación 57.</p>
+</div>
+
+<div class="news">
+    <h3>Zona derruida: acceso restringido</h3>
+    <p class="glitch">Se han registrado movimientos no identificados.</p>
+</div>
+
+<div class="news">
+    <h3>U Menor emite comunicado oficial</h3>
+    <p>“No existen registros de incidentes recientes.”</p>
+</div>
+
+<div class="news">
+    <h3>ARCHIVO FILTRADO</h3>
+    <p class="glitch">
+        /isaac/log_03.txt<br>
+        “la libreta cambia cuando no estoy mirando”
+    </p>
+</div>
+
+<footer>
+    <p><a href="#">Contacto</a> | <a href="#">Archivo completo</a> | <a href="#">???</a></p>
+</footer>
+
+</body>
+</html>
