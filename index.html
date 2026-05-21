@@ -28,12 +28,14 @@
 setInterval(() => {
     const elements = document.querySelectorAll("h2, h3");
     const random = elements[Math.floor(Math.random() * elements.length)];
-    
-    if (Math.random() < 0.3) {
-        random.innerText = "███ LEAK CORRUPTED ███";
-    }
-}, 5000);
-</script>
 
-</body>
-</html>
+    const original = random.innerText;
+
+    random.innerText = "███ CORRUPTED ███";
+
+    setTimeout(() => {
+        random.innerText = original;
+    }, 100);
+
+}, 150);
+</script>
