@@ -24,4 +24,16 @@
     <p style="opacity:0.6;">última imagen conocida: estructura metálica / rueda detenida / vegetación interna</p>
 </div>
 
-<hr>
+<hr><script>
+setInterval(() => {
+    const elements = document.querySelectorAll("h2, h3");
+    const random = elements[Math.floor(Math.random() * elements.length)];
+    
+    if (Math.random() < 0.1) {
+        random.innerText = "███ LEAK CORRUPTED ███";
+    }
+}, 5000);
+</script>
+
+</body>
+</html>
