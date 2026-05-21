@@ -38,4 +38,41 @@ setInterval(() => {
     }, 100);
 
 }, 150);
+</script><div style="background:#0b0b0f; color:#d6d6d6; padding:15px; font-family:monospace;">
+    <p>CAPITAL SYSTEM // CONSOLE</p>
+    <p>escribe un comando:</p>
+
+    <input id="cmd" type="text" style="width:100%; padding:8px; background:black; color:white; border:1px solid #333;">
+    <button onclick="runCommand()">ejecutar</button>
+
+    <pre id="output" style="margin-top:10px;"></pre>
+</div>
+
+<script>
+function runCommand() {
+    const input = document.getElementById("cmd").value.toLowerCase();
+    const output = document.getElementById("output");
+
+    const responses = {
+        "help": "comandos: leaks, isaac, zone, hospital, exit",
+        "leaks": "acceso a CAPITAL LEAKS concedido... ██",
+        "isaac": "ISAAC STATUS: inestable / observador activo",
+        "zone": "zona derruida: señal perdida parcialmente",
+        "hospital": "hospital 3: habitación 57 responde",
+        "exit": "cerrando consola..."
+    };
+
+    if (responses[input]) {
+        output.innerText = responses[input];
+    } else {
+        const weird = [
+            "comando no reconocido",
+            "███ interferencia detectada ███",
+            "el sistema no responde correctamente",
+            "ISAAC HA INTERFERIDO LA PETICIÓN"
+        ];
+        output.innerText = weird[Math.floor(Math.random() * weird.length)];
+    }
+}
 </script>
+
