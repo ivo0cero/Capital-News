@@ -39,69 +39,35 @@ setInterval(() => {
 
 }, 150);
 </script>
-
-
-<div style="background:#0b0b0f; color:#d6d6d6; padding:15px; font-family:monospace;">
-    <p>CAPITAL SYSTEM // CONSOLE</p>
-    <p>escribe un comando:</p>
-
-    <input id="cmd" type="text" style="width:100%; padding:8px; background:black; color:white; border:1px solid #333;">
-    <button onclick="runCommand()">ejecutar</button>
-
-    <pre id="output" style="margin-top:10px;"></pre>
-</div>
-
 <div style="background:#0b0b0f; color:#d6d6d6; padding:15px; font-family:monospace; border:1px solid #333;">
-    <p>CAPITAL SYSTEM // TERMINAL DE ACCESO</p>
-    <p>escribe un comando:</p>
+    <p>CAPITAL SYSTEM // TERMINAL</p>
 
     <input id="cmd" type="text" style="width:100%; padding:8px; background:black; color:white; border:1px solid #333;">
-    <button onclick="runCommand()">ejecutar</button>
+    <button id="btn">ejecutar</button>
 
     <pre id="output" style="margin-top:10px; white-space:pre-wrap;"></pre>
 </div>
 
 <script>
+document.getElementById("btn").addEventListener("click", runCommand);
+
 function runCommand() {
     const input = document.getElementById("cmd").value.trim().toLowerCase();
     const output = document.getElementById("output");
 
     const responses = {
-        "ayuda": 
-`comandos disponibles:
-- capital
-- zona
-- rueda
-- hospital 3
-- ayuda`,
-
-        "capital": 
-"CAPITAL: ciudad activa / 11 millones de habitantes / múltiples sectores inestables detectados",
-
-        "zona": 
-"ZONA DERRUIDA: acceso restringido / estructuras oxidadas / actividad intermitente detectada",
-
-        "rueda": 
-"RUEDA DE LA FORTUNA: estructura detenida / 35m de altura / presencia no confirmada",
-
-        "hospital 3": 
-"HOSPITAL 3: bloque operativo / habitación 57 bajo observación / registros incompletos"
+        "ayuda": "capital, zona, rueda, hospital 3",
+        "capital": "CAPITAL: ciudad activa",
+        "zona": "ZONA DERRUIDA: acceso restringido",
+        "rueda": "RUEDA: estructura detenida",
+        "hospital 3": "HOSPITAL 3: habitación 57 activa"
     };
 
-    if (responses[input] !== undefined) {
+    if (responses[input]) {
         output.innerText = responses[input];
     } else {
-        const errors = [
-            "comando no reconocido",
-            "entrada inválida",
-            "acceso denegado",
-            "sistema no encuentra el comando"
-        ];
-        output.innerText = errors[Math.floor(Math.random() * errors.length)];
+        output.innerText = "comando no reconocido";
     }
-
-    document.getElementById("cmd").value = "";
 }
 </script>
-
 
