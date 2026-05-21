@@ -21,7 +21,7 @@
 <div style="background:white; padding:15px; margin-bottom:10px; border-left:4px solid #ff4c4c;">
     <h3>STATUS ZONA DERRUIDA</h3>
     <p>ACCESO NEGADO</p>
-    <p style="opacity:0.6;">última imagen conocida: estructura metálica / rueda detenida / vegetación interna</p>
+    <p style="opacity:0.6;">última imagen conocida: estructura metálica / rueda detenida / rueda de la fortuna</p>
 </div>
 
 <hr><script>
@@ -51,37 +51,56 @@ setInterval(() => {
     <pre id="output" style="margin-top:10px;"></pre>
 </div>
 
+<div style="background:#0b0b0f; color:#d6d6d6; padding:15px; font-family:monospace; border:1px solid #333;">
+    <p>CAPITAL SYSTEM // TERMINAL DE ACCESO</p>
+    <p>escribe un comando:</p>
+
+    <input id="cmd" type="text" style="width:100%; padding:8px; background:black; color:white; border:1px solid #333;">
+    <button onclick="runCommand()">ejecutar</button>
+
+    <pre id="output" style="margin-top:10px; white-space:pre-wrap;"></pre>
+</div>
+
 <script>
 function runCommand() {
-    const input = document.getElementById("cmd").value.toLowerCase();
+    const input = document.getElementById("cmd").value.trim().toLowerCase();
     const output = document.getElementById("output");
 
     const responses = {
-        "help": "comandos: leaks, isaac, zone, hospital, exit",
-        "leaks": "acceso a CAPITAL LEAKS concedido... ██",
-        "isaac": "ISAAC STATUS: inestable,
-        "zone": "zona derruida: señal perdida parcialmente",
-        "hospital": "hospital 3: habitación 57 responde",
-        "exit": "cerrando consola..."
-        "freedom": "ERROR // este comando no debería existir... creo.. yo que se",
-        "rueda-35": "acceso parcial a estructura oxidada...",
-        "isaac-alone": "NO SE RECOMIENDA DEJAR A ISAAC SOLO"
-        "???": "IVO YA ESTÁ VIENDO ESTO CONTIGO"
-    
-};
+        "ayuda": 
+`comandos disponibles:
+- capital
+- zona
+- rueda
+- hospital 3
+- ayuda`,
+
+        "capital": 
+"CAPITAL: ciudad activa / 11 millones de habitantes / múltiples sectores inestables detectados",
+
+        "zona": 
+"ZONA DERRUIDA: acceso restringido / estructuras oxidadas / actividad intermitente detectada",
+
+        "rueda": 
+"RUEDA DE LA FORTUNA: estructura detenida / 35m de altura / presencia no confirmada",
+
+        "hospital 3": 
+"HOSPITAL 3: bloque operativo / habitación 57 bajo observación / registros incompletos"
     };
 
-    if (responses[input]) {
+    if (responses[input] !== undefined) {
         output.innerText = responses[input];
     } else {
-        const weird = [
+        const errors = [
             "comando no reconocido",
-            "███ interferencia detectada ███",
-            "el sistema no responde correctamente",
-            "Que tal?"
+            "entrada inválida",
+            "acceso denegado",
+            "sistema no encuentra el comando"
         ];
-        output.innerText = weird[Math.floor(Math.random() * weird.length)];
+        output.innerText = errors[Math.floor(Math.random() * errors.length)];
     }
+
+    document.getElementById("cmd").value = "";
 }
 </script>
 
