@@ -29,7 +29,7 @@ setInterval(() => {
     const elements = document.querySelectorAll("h2, h3");
     const random = elements[Math.floor(Math.random() * elements.length)];
     
-    if (Math.random() < 0.1) {
+    if (Math.random() < 0.5) {
         random.innerText = "███ LEAK CORRUPTED ███";
     }
 }, 5000);
